@@ -1,16 +1,33 @@
-#include <QtGui/QApplication>
-#include <marble/MarbleWidget.h>
+// This Widget is use Marble framework under the LGPL license 
 
-int main(int argc, char** argv)
+#include <QApplication>
+#include <QtQuick/QQuickView>
+#include "MapItem.h"
+
+class Mainwindow: public QQuickView
 {
-    QApplication app(argc, argv);
+public:
+	Mainwindow(){
 
-    // Load Marble using OpenStreetMap in Mercator projection
-    Marble::MarbleWidget *mapWidget = new Marble::MarbleWidget;
-    mapWidget->setProjection(Marble::Mercator);
-    mapWidget->setMapThemeId("earth/openstreetmap/openstreetmap.dgml");
+		viewer = new QQuickView;
+        qmlRegisterType<MapItem>("MapItem", 1, 0, "MapItem");
+	    viewer->setSource(QUrl("./main.qml"));
+	    viewer->show();
 
-    mapWidget->setWindowTitle("Hello Marble!");
-    mapWidget->show();
-    return app.exec();
+	}
+	~Mainwindow(){};
+
+private:
+	QQuickView * viewer;
+
+};
+
+int main(int argc, char  *argv[])
+{
+	QApplication app(argc,argv);
+	QQuickView *  viewer = new QQuickView;
+    //viewer.setOrientation(QQuickView::ScreenOrientationAuto);
+	Mainwindow w;
+	return app.exec();
 }
+
