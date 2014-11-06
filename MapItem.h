@@ -1,5 +1,5 @@
-// This Widget is use Marble framework under the LGPL license 
-
+// This Widget is use Marble framework under the LGPL license
+//
 #include <QApplication>
 #include <QtQuick/QQuickView>
 #include <marble/MarbleQuickItem.h>
@@ -24,6 +24,4 @@ public slots:
 
 private:
     void makePinch(QPointF, Qt::GestureState, qreal);
-    
-    
 };
