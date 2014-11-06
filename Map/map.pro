@@ -9,11 +9,27 @@ uri = com.mycompany.qmlcomponents
 # Input
 SOURCES += \
     map_plugin.cpp \
-    myitem.cpp
+    myitem.cpp \
+    qgeocodereply_osm.cpp \
+    qgeocodingmanagerengine_osm.cpp \
+    qgeomapreply_osm.cpp \
+    qgeoroutereply_osm.cpp \
+    qgeoroutingmanagerengine_osm.cpp \
+    qgeoserviceproviderplugin_osm.cpp \
+    qgeotiledmappingmanagerengine_osm.cpp \
+    qgeotilefetcher_osm.cpp
 
 HEADERS += \
     map_plugin.h \
-    myitem.h
+    myitem.h \
+    qgeocodereply_osm.h \
+    qgeocodingmanagerengine_osm.h \
+    qgeomapreply_osm.h \
+    qgeoroutereply_osm.h \
+    qgeoroutingmanagerengine_osm.h \
+    qgeoserviceproviderplugin_osm.h \
+    qgeotiledmappingmanagerengine_osm.h \
+    qgeotilefetcher_osm.h
 
 OTHER_FILES = qmldir
 
