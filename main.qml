@@ -6,7 +6,7 @@ Rectangle {
     width: 600
     height: 600
     color: "transparent"
-    MarbleItem
+    MapItem
     {
         anchors.fill: parent
         id: marble

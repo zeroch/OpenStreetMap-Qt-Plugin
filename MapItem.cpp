@@ -1,21 +1,6 @@
 #include "MapItem.h"
 
-MapItem::MapItem(QQuickItem *parent=0) : MapItem(parent)
-{
-	map()->setSize(width(), height());
-    map()->setShowFrameRate(true);
-    map()->setProjection(Mercator);
-    map()->setMapThemeId("earth/openstreetmap/openstreetmap.dgml");
-    map()->setShowAtmosphere(false);
-    map()->setShowCompass(false);
-    map()->setShowClouds(false);
-    map()->setShowCrosshairs(false);
-    map()->setShowGrid(false);
-    map()->setShowOverviewMap(false);
-    map()->setShowOtherPlaces(false);
-    map()->setShowScaleBar(false);
-    map()->setShowBackground(false);
-}
+
 
 MapItem::~MapItem()
 {
@@ -23,11 +8,10 @@ MapItem::~MapItem()
 
 void MapItem::componentComplete()
 {
-
 	QQuickItem *pinch = findChild<QQuickItem*>("pinchArea");
 	if (pinch)
 	{
-		pinch->setFiltersChildMouseEvents(childMouseEventFilter());
+            pinch->installEventFilter(getEventFilter());
 	}
 }
 void MapItem::makePinch(QPointF center, Qt::GestureState currentState, qreal scale =1)

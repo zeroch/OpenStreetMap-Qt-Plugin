@@ -17,7 +17,7 @@ else ()
     message (FATAL_ERROR "ERROR: Environment variable QTDIR is not set. Please locate your Qt folder MY_QT5_DIR.")
 endif ()
 
-find_package(Qt5 REQUIRED Widgets Gui Core Quick Qml)
+find_package(Qt5 REQUIRED Gui Core Quick Qml)
 
 message(STATUS "${CMAKE_PREFIX_PATH}")
 # FIND_PACKAGE (Marble REQUIRED)
